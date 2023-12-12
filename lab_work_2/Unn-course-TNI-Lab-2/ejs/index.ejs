@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Публичная библиотека</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+    <nav class="nav-menu">
+        <a href=""><img src="/public/images/library.png" alt="library" class="nav-menu_icon"></a>
+        <div class="nav-menu_rectangle">
+            <p>Публичная библиотека</p>
+        </div>
+        <a href="/your_books"><img src="/public/images/my_books.png" alt="user account" class="nav-menu_icon"></a>
+    </nav>
+    <form action="/search" method="POST" class="search">
+        <select name="param" class="search_param">
+            <option value="codeISBN" selected>По коду ISBN</option>
+            <option value="authors">По авторам</option>
+            <option value="codePublisher">По коду издания</option>
+            <option value="publishing">По издательству</option>
+            <option value="name">По наименованию книги</option>
+        </select>
+        <input type="text" name="query" class="search_input" placeholder="Найти...">
+        <button type="submit"><img src="/public/images/search.png" alt="search" class="search_btn"></button>
+    </form>
+    <div class="main">
+        <section class="main_section">
+            <h2 class="main_header">Каталог книг</h2>
+            <div class="main_books">
+                <% books.forEach( function(book) { %>
+                    <div class="main_book">
+                        <p><strong>Код ISBN:</strong> <%= book.codeISBN %></p>
+                        <p><strong>Автор:</strong> <%= book.authors %></p>
+                        <p><strong>Код издания:</strong> <%= book.codePublisher %></p>
+                        <p><strong>Издательство:</strong> <%= book.publishing %></p>
+                        <p><strong>Наименовае книги:</strong> <%= book.name %></p>
+                        <p><strong>Количество доступных книг:</strong> <%= book.number %></p>
+                            <% if (book.number > 0) { %>
+                                <!-- <input type="submit" value="Добавить к себе"/> -->
+                                <div class="main_book_btn">
+                                    <form action="/add_book" method="post">
+                                        <input type="hidden" name="codeISBN" value="<%= book.codeISBN%>">
+                                        <button class="book_btn" type="submit">Взять</button>
+                                    </form>
+                                </div>
+                            <% } else { %>
+                                <!-- <input type="submit" value="Книги кончились" disabled> -->
+                                <div class="main_book_btn">
+                                    <button class="book_btn_no" disabled>Временно недосупно</button>
+                                </div>
+                            <% }%>
+                    </div>
+                <% }); %>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

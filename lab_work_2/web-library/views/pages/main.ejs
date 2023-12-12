@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<%- include('../res/header.ejs') %>
+
+<body>
+    <%- include('../res/navbar.ejs') %>
+    <%- include('../res/search.ejs') %>
+
+    <div class="container">
+        <div id="album" class="d-flex flex-row flex-wrap justify-content-start">
+            <% for(var i = 0; i < books.length; i++) { %>
+            <div id="<%= books[i].id %>" 
+                 authors="<%= books[i].authors %>"
+                 editioncode="<%= books[i].editioncode %>"
+                 edition="<%= books[i].edition %>"
+                 name="<%= books[i].name %>" 
+                 class="col-md-3">
+                <div class="card shadow-sm m-2">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= books[i].name %>
+                        </h5>
+                        <p class="card-text">
+                            <b>ISBN-10</b> <%= books[i].id %> <br>
+                            <b>Authors</b> <%= books[i].authors %> <br>
+                            <b>Edition code</b> <%= books[i].editioncode %> <br>
+                            <b>Edition</b> <%= books[i].edition %> <br>
+                            <b>Available</b> <%= books[i].count %>
+                        </p>
+                        <form action="/" method="POST">
+                            <input type="hidden" name="book_id" value="<%= books[i].id %>" />
+                            <button type="submit" class="btn btn-primary">
+                                Take this book
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+
+</html>

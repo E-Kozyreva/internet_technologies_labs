@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/user_books_styles.css">
+    <title>Ваши книги</title>
+</head>
+<body>
+    <h1>Ваши Книги</h1>
+    <div class="home">
+        <a href="/"><img src="/public/images/library.png" alt="Назад"></a>
+    </div>
+    <div class="container">
+        <% userBooks.forEach( function(userBook) { %>
+            <div class="main_book">
+                <div class="info_container">
+                    <p><strong>Код ISBN:</strong> <%= userBook.codeISBN %></p>
+                    <p><strong>Автор:</strong> <%= userBook.authors %></p>
+                    <p><strong>Код издания:</strong> <%= userBook.codePublisher %></p>
+                    <p><strong>Издательство:</strong> <%= userBook.publishing %></p>
+                    <p><strong>Наименовае книги:</strong> <%= userBook.name %></p>
+                    <p><strong>Дата взятия:</strong> <%= userBook.startTime %></p>
+                    <p><strong>Дата возвращения:</strong> <%= userBook.endTime %></p>
+                </div>
+                <form class="form_btn" action="/book_return" method="post">
+                    <input type="hidden" name="codeISBN" value="<%= userBook.codeISBN%>">
+                    <button class="btn" type="submit">Вернуть</button>
+                </form>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>

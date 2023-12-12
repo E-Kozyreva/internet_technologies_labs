@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+
+    <%- include('../res/header.ejs') %>
+
+    <body>
+
+        <%- include('../res/navbar.ejs') %>
+
+        <div class="container mx-auto" style="width: 300px;">
+            <form action="/addBook" method="POST" class="mt-3">
+                <input class="form-control" type="text" name="id" placeholder="Boook Code"> </br>
+                <input class="form-control" type="text" name="authors" placeholder="Authors"> </br>
+                <input class="form-control" type="text" name="editioncode" placeholder="Edition Code"> </br>
+                <input class="form-control" type="text" name="edition" placeholder="Edition"> </br>
+                <input class="form-control" type="text" name="name" placeholder="Book Name"> </br>
+                <input class="form-control" type="number" name="count" placeholder="Book Count"> </br>
+                <a href="/" class="btn btn-primary">Cancel</a>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </body>
+</html>

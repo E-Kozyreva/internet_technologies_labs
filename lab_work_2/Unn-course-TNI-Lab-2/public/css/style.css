@@ -1,0 +1,91 @@
+
+.nav-menu_icon {
+    width: 50px;
+    height: 50px;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.nav-menu_rectangle {
+    height: 50;
+    width: 500;
+    background: aqua;
+}
+
+.nav-menu_rectangle p {
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    padding-top: 50px;
+    border-top: 2px solid black;
+}
+
+.search_input {
+    margin-right: 30px;
+    width: 300px;
+}
+
+.search_btn {
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+    background-image: url(../images/search.png);
+}
+
+.main {
+    border-top: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+}
+
+.main_books {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.main_book {
+    text-align: start;
+    border: 1px solid black;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.main_section {
+    width: 1000px;
+    text-align: center;
+}
+
+.book_btn {
+    background-color: rgb(28, 196, 28);
+    cursor: pointer;
+}
+
+.book_btn_no {
+    background-color: lightgreen;
+    cursor: not-allowed;
+}
+
+.main_book_btn {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search_param {
+    margin-right: 20px;
+    width: 268px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    height: 34px;
+    background: lightgreen;
+}

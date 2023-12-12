@@ -1,0 +1,21 @@
+h1 {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 30px;
+    color: green;
+    margin-bottom: 30px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+}
