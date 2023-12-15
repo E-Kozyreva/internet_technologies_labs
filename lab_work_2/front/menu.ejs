@@ -1,0 +1,31 @@
+<style>
+    /* Стили для центрирования элементов внутри навигационной панели */
+    .navbar-nav {
+        text-align: center; 
+    }
+    
+    /* Общие стили для пунктов навигации */
+    .nav-item {
+        transition: font-size 0.3s; /* Плавное изменение размера шрифта при наведении */
+        font-size: 1em; 
+        margin-right: 15px; /* Отступ между пунктами навигации */
+    }
+    
+    /* Стили для навигационных пунктов при наведении */
+    .nav-item:hover {
+        font-size: 1.2em; /* Увеличение размера шрифта при наведении */
+        color: #ffffff; /* Изменение цвета текста на белый */
+        text-decoration: none; /* Убирание подчеркивания текста при наведении */
+        font-weight: bold; /* Увеличение жирности шрифта при наведении */
+    }
+</style>
+
+<!-- Навигационная панель с центрированными элементами -->
+<nav class="d-flex justify-content-center navbar navbar-expand-lg navbar-light ">
+    <div class="d-flex justify-content-center navbar-nav">
+        <!-- Ссылки на разделы с соответствующими названиями -->
+        <a class="nav-item nav-link" href="/">Библиотека</a>
+        <a class="nav-item nav-link" href="/user">Пользователь</a>
+        <a class="nav-item nav-link" href="/addBook">Добавить книгу</a>
+    </div>
+</nav>

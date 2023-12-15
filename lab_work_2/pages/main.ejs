@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<!-- Подключение заголовка страницы -->
+<%- include('F:/university/internet_technologies_labs/lab_work_2/front/header.ejs') %>
+<!-- Подключение меню страницы -->
+<%- include('F:/university/internet_technologies_labs/lab_work_2/front/menu.ejs') %>
+<!-- Подключение блока поиска -->
+<%- include('F:/university/internet_technologies_labs/lab_work_2/front/search.ejs') %>
+<body>
+    <!-- Стили для карточек и кнопок -->
+    <style>
+        .card {
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .btn-rounded {
+            border-radius: 20px; 
+            padding: 8px 16px; 
+        }
+    </style>
+    
+    <!-- Предупреждение в боковом окне -->
+    <% if (messages && messages.length > 0) { %>
+        <div class="alert alert-warning text-center" role="alert">
+            <%= messages[0] %>
+        </div>
+    <% } %>
+    
+    <!-- Контейнер для размещения карточек книг -->
+    <div class="container">
+        <div class="row" id="album">
+            <% for(var i = 0; i < books.length; i++) { %>
+            
+            <!-- Карточка книги -->
+            <div class="col-md-4 mb-4" id="<%= books[i].id %>" authors="<%= books[i].authors %>"
+                 edition="<%= books[i].edition %>" editioncode="<%= books[i].editioncode %>" name="<%= books[i].name %>">
+
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <!-- Название книги -->
+                        <h5 class="card-title"><%= books[i].name %></h5>
+                        <!-- Информация о книге -->
+                        <p class="card-text">
+                            <b>ISBN: </b> <%= books[i].id %> <br>
+                            <b>Авторы: </b> <%= books[i].authors %> <br>
+                            <b>Код издания: </b> <%= books[i].editioncode %> <br>
+                            <b>Издание: </b> <%= books[i].edition %> <br>
+                            <b>Количество книг: </b> <%= books[i].count %>
+                        </p>
+                        <!-- Форма для отправки запроса на взятие книги -->
+                        <form action="/" method="POST" class="mt-auto">
+                            <input type="hidden" name="book_id" value="<%= books[i].id %>"/>
+                            <button type="submit" class="btn btn-dark btn-rounded">Взять книгу</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

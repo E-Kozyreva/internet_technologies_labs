@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Стили для поискового ввода */
+        .search-input {
+            border-radius: 10px; /* Закругленные углы */
+            background-image: none; /* Убираем фоновое изображение */
+        }
+
+        .wider-search {
+            width: 250px; /* Увеличиваем ширину поискового поля */
+        }
+
+        /* Стили для навигационной панели */
+        .navbar {
+            margin-bottom: 10px; /* Добавляем отступ снизу */
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="d-flex justify-content-center navbar navbar-expand-lg navbar-light">
+        <form class="form-inline my-2 my-lg-10">
+            <!-- Поисковое поле -->
+            <input class="form-control search-input mr-sm-2 bg-black wider-search" name="search" id="search"
+                type="search" placeholder="Поиск" aria-label="Search">
+        </form>
+    </nav>
+
+    <script>
+        // Функция принимает на вход строку name, которую нужно найти в книгах
+        function findBooks(name) {
+            // Приводим строку к нижнему регистру для упрощения сравнения
+            name = name.toLowerCase();
+
+            // Получаем массив книг из дочерних элементов с id 'album'
+            var books = Array.from(document.getElementById('album').children);
+
+            // Проверяем, не пустая ли строка name
+            if (name !== '') {
+                // Перебираем каждую книгу в массиве
+                books.forEach(book => {
+                    // Получаем элемент карточки книги по её id
+                    var card = document.getElementById(book.getAttribute('id'));
+
+                    // Проверяем, соответствует ли книга введенному поисковому запросу (name)
+                    var isMatch =
+                        book.getAttribute('id').toLowerCase().includes(name) ||
+                        book.getAttribute('authors').toLowerCase().includes(name) ||
+                        book.getAttribute('editioncode').toLowerCase().includes(name) ||
+                        book.getAttribute('edition').toLowerCase().includes(name) ||
+                        book.getAttribute('name').toLowerCase().includes(name);
+
+                    // Если книга соответствует запросу, показываем её, иначе скрываем
+                    if (isMatch) {
+                        card.removeAttribute('hidden');
+                    } else{
+                        card.setAttribute('hidden', 'true');
+                    }
+                });
+            } else {
+                // Если строка поиска пуста, показываем все книги
+                books.forEach(book => {
+                    var card = document.getElementById(book.getAttribute('id'));
+                    card.removeAttribute('hidden');
+                });
+            }
+        }
+
+        const selectElement = document.querySelector('#search');
+        selectElement.addEventListener('input', (event) => {
+            findBooks(event.target.value);
+        });
+
+    </script>
+
+</body>
+
+</html>

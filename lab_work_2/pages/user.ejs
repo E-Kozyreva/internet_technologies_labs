@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Включение заголовка страницы -->
+<%- include('F:/university/internet_technologies_labs/lab_work_2/front/header.ejs') %>
+
+<!-- Включение меню страницы -->
+<%- include('F:/university/internet_technologies_labs/lab_work_2/front/menu.ejs') %>
+
+<!-- Включение блока поиска -->
+<%- include('F:/university/internet_technologies_labs/lab_work_2/front/search.ejs') %>
+
+<body>
+
+    <!-- Внутренний стиль страницы с использованием CSS -->
+    <style>
+        /* Стиль карточки с книгой */
+        .card {
+            transition: transform 0.2s;
+        }
+
+        /* Анимация увеличения карточки при наведении */
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Стиль кнопки с закругленными углами */
+        .btn-rounded {
+            border-radius: 20px;
+            padding: 8px 16px;
+        }
+    </style>
+
+    <!-- Основной контейнер страницы -->
+    <div class="container">
+        <div class="row">
+            <!-- Цикл для вывода информации о книгах -->
+            <% for(var i = 0; i < books.length; i++) { %>
+                <div class="col-md-4 mb-4">
+                    <!-- Карточка с информацией о книге -->
+                    <div class="card h-100">
+                        <!-- Тело карточки с выравниванием по вертикали -->
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <!-- Название книги -->
+                            <h5 class="card-title"><%= books[i].name %></h5>
+                            <!-- Информация о книге, такая как ISBN, авторы, и т.д. -->
+                            <p class="card-text">
+                                <b>ISBN: </b> <%= books[i].id %> <br>
+                                <b>Авторы: </b> <%= books[i].authors %> <br>
+                                <b>Код издания: </b> <%= books[i].editioncode %> <br>
+                                <b>Издание: </b> <%= books[i].edition %> <br>
+                                <b>Вернуть до: </b> <%= books[i].date %>
+                            </p>
+                            <!-- Форма для возврата книги с использованием метода POST -->
+                            <form action="/user" method="POST" class="mt-auto">
+                                <input type="hidden" name="book_id" value="<%= books[i].id %>"/>
+                                <button type="submit" class="btn btn-dark btn-rounded">Вернуть книгу</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+
+</body>
+
+</html>

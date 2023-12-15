@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+<!-- Подключение заголовка страницы -->
+<%- include('F:/university/internet_technologies_labs/lab_work_2/front/header.ejs') %>
+
+<!-- Подключение меню страницы -->
+<%- include('F:/university/internet_technologies_labs/lab_work_2/front/menu.ejs') %>
+
+<body>
+    <div class="container mt-6">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="/addBook" method="POST" class="mx-auto">
+
+                    <!-- Поле ввода кода книги -->
+                    <div class="mb-3">
+                        <label for="id" class="form-label">Код книги</label>
+                        <input class="form-control rounded-pill" type="text" id="id" name="id" placeholder="Введите код книги" required>
+                    </div>
+
+                    <!-- Поле ввода авторов -->
+                    <div class="mb-3">
+                        <label for="authors" class="form-label">Авторы</label>
+                        <input class="form-control rounded-pill" type="text" id="authors" name="authors" placeholder="Введите авторов" required>
+                    </div>
+
+                    <!-- Поле ввода кода издания -->
+                    <div class="mb-3">
+                        <label for="editioncode" class="form-label">Код издания</label>
+                        <input class="form-control rounded-pill" type="text" id="editioncode" name="editioncode" placeholder="Введите код издания" required>
+                    </div>
+
+                    <!-- Поле ввода издания -->
+                    <div class="mb-3">
+                        <label for="edition" class="form-label">Издание</label>
+                        <input class="form-control rounded-pill" type="text" id="edition" name="edition" placeholder="Введите издание" required>
+                    </div>
+
+                    <!-- Поле ввода названия книги -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Название книги</label>
+                        <input class="form-control rounded-pill" type="text" id="name" name="name" placeholder="Введите название книги" required>
+                    </div>
+
+                    <!-- Поле ввода количества книг -->
+                    <div class="mb-3">
+                        <label for="count" class="form-label">Количество книг</label>
+                        <input class="form-control rounded-pill" type="number" id="count" name="count" placeholder="Введите количество книг" required>
+                    </div>
+
+                    <!-- Кнопки -->
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-dark rounded-pill w-100">Создать</button>
+                    </div>
+                    <div class="mb-3">
+                        <a href="/" class="btn btn-light rounded-pill w-100">Отмена</a>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
