@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,9 +20,7 @@
         }
     </style>
 </head>
-
 <body>
-
     <nav class="d-flex justify-content-center navbar navbar-expand-lg navbar-light">
         <form class="form-inline my-2 my-lg-10">
             <!-- Поисковое поле -->
@@ -31,7 +28,6 @@
                 type="search" placeholder="Поиск" aria-label="Search">
         </form>
     </nav>
-
     <script>
         // Функция принимает на вход строку name, которую нужно найти в книгах
         function findBooks(name) {
@@ -71,14 +67,10 @@
                 });
             }
         }
-
         const selectElement = document.querySelector('#search');
         selectElement.addEventListener('input', (event) => {
             findBooks(event.target.value);
         });
-
     </script>
-
 </body>
-
 </html>

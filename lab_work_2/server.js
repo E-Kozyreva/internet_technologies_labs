@@ -5,7 +5,7 @@ const flash = require('connect-flash');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
 
-// Переименованные переменные
+// Переменные
 let booksCollection;
 let userCollection;
 
